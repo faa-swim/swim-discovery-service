@@ -1,0 +1,65 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://sdm-j-1.0.0/grounding.json",
+	"title": "Grounding Schema",
+	"description": "This schema defines the Grounding part of a Service Description.",
+	"type": "object",
+	"definitions": {
+	 
+	"grounding": {
+		"description": "The part of a service description that describes the means by which the service is invoked, including the underlying technology protocols and network locations of the service.",
+		"type": "object",
+		"properties": {
+			"binding": {
+				"description": "A specification of the protocol and data format to be used in transmitting messages defined by the associated interface.",
+				"type": "array",
+				"items": {
+					"allOf": [
+						{
+							"type":"object", 
+							"properties": {
+								"description": "A document containing a formal set of rules governing data encoding and coordination for data exchange among components.",
+								"protocol": {
+									"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/document.json#/definitions/document"
+								}
+							}
+						},
+						{
+								"properties": {
+								"description": "A value that indicates the type of interactions addressed by the protocol.",
+								"type": {
+									"enum": [ "data", "message", "transport", "other" ]
+								}
+							}
+						}
+					]
+				}
+			},
+			"end-point": {
+				"description": "An association between a fully-specified binding and a physical point (i.e., a network address) at which the service may be accessed.",
+				"type": "array",
+				"items": {
+					"properties": {
+						"name": {
+							"description": "The name of the end point.",
+							"type": "string"
+						},
+						"description": {
+							"description": "A description of the end point.",
+							"type": "string"
+						},
+						"interface-name": {
+							"description": "The name of the interface accessible via the end-point",
+							"type": "string"
+						},
+						"location": {
+							"description": "A physical point at which the service may be accessed.",
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	}
+	}
+}

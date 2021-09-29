@@ -1,0 +1,94 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Resource schema",
+	"description": "This schema defines the Resource extension of the SDCM v.2.0",
+	"type": "object",
+	"definitions": {
+		"resource": {
+			"description": "An item of interest a consumer can interact with through the service.",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "The name of the resource.",
+					"type": "string"
+				},
+				"description": {
+					"description": "A description of the resource.",
+					"type": "string"
+				},
+				"path": {
+					"description": "A relative path to the URI that identifies the resource in the context of the API.",
+					"type": "string",
+					"format": "uri"
+				},
+				"template": {
+					"description": "A resource URI syntax that includes variables (parameters) that must be substituted before the URI is resolved.",
+					"type": "string",
+					"format": "uri"
+				},
+				"http-method": {
+					"$ref": "#/definitions/http-method"
+				},
+				"operation": {
+					"description": "The name of the operation through which the resource is accessed or manipulated.",
+					"type": "string"
+				},
+				"parameters": {
+					"description": "A list of parameters that are applicable to this resource.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/parameter"
+					}
+				},
+				"representation": {
+					"$ref": "#/definitions/representation"
+				}
+			}
+		},
+		"http-method": {
+			"type": "string",
+			"enum": [ "GET", "POST", "PUT", "DELETE", "PATCH", "CONNECT", "TRACE" ],
+			"default": "GET"
+		},
+		"parameter": {
+			"type": "object",
+			"description": "An argument included in a request to alter the response.",
+			"properties": {
+				"name": {
+					"description": "The name of the parameter.",
+					"type": "string"
+				},
+				"description": {
+					"description": "A description of the parameter.",
+					"type": "string"
+				},
+				"parameter-type": {
+					"description": "A value that indicates the type of the parameter.",
+					"type": "string",
+					"enum": [ "path", "query", "header", "cookie" ]
+				},
+				"permissible-value": {
+					"description": "A set of values (zero or more) that the parameter may accept.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"representation": {
+			"description": "Data that encodes information about the resource.",
+			"type": "object",
+			"properties": {
+				"content-type": {
+					"description": "The format of representation data in the form of Internet media types.",
+					"type": "object"
+				},
+				"content-language": {
+					"description": "The natural language in which the representation is written.",
+					"type": "object"
+				}
+			}
+		}
+	}
+}

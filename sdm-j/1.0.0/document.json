@@ -1,0 +1,48 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://sdm-j-2.0.0/document.json",
+	"title": "Document schema",
+	"description": "This schema defines the class 'Document', which is used to describe any documents in the context of a service description. Examples of the Document instances include: policy document, protocol, etc.",
+	"type": "object",
+	"definitions": {
+		"document": {
+			"description": "Any medium with information recorded on or in it.",
+			"type": "object",
+			"properties": {
+				"title": {
+					"description": "The name by which the document is formally known.",
+					"type": "string"
+				},
+				"alternative-title": {
+					"description": "An alternative name for the document.",
+					"type": "string"
+				},
+				"publisher": {
+					"description": "The entity responsible for making the document available.",
+					"type": "string"
+				},
+				"date-issued": {
+					"description": "The date of formal issuance (e.g., publication) of the document.",
+					"type": "string"
+				},
+				"version": {
+					"description": "The current version or revision level of the document.",
+					"type": "string"
+				},
+				"description": {
+					"description": "A description of the document.",
+					"type": "string"
+				},
+				"creator": {
+					"description": "The entity primarily responsible for making the content of the document.",
+					"type": "string"
+				},
+				"location": {
+					"description": "The address or Web location where a copy of the document can be obtained.",
+					"type": "string"
+				}
+			},
+			"required": [ "title", "version", "publisher", "location" ]
+		}
+	}
+}

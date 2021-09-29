@@ -1,0 +1,158 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Model",
+	"description": "This schema defines the Model part of a Service Description.",
+	"type": "object",
+	"definitions": {
+		"model": {
+			"description": "The part of a service description that tells a service requester how to construct an invocation message and interpret a response message.",
+			"type": "object",
+			"properties": {
+				"interface": {
+					"description": "A named set (logical grouping) of operations.",
+					"type": "object",
+					"properties": {
+						"name": {
+							"description": "The name of the interface.",
+							"type": "string"
+						},
+						"description": {
+							"description": "A description of the interface.",
+							"type": "string"
+						},
+						"operation": {
+							"description": "Zero or more operations offered by the interface.",
+							"type": "array",
+							"items": {
+								"type": "object",
+								"required": [ "name", "description" ],
+								"properties": {
+									"name": {
+										"description": "The name of the operation.",
+										"type": "string"
+									},
+									"description": {
+										"description": "A description of the operation.",
+										"type": "string"
+									},
+									"idempotent": {
+										"description": "A value that indicates whether the operation is idempotent or not.",
+										"type": "boolean"
+									},
+									"synchronous": {
+										"description": "A value that indicates whether the operation is synchronous or not (asynchronous).",
+										"type": "boolean"
+									},
+									"message-exchange-pattern": {
+										"description": "A value that indicates the pattern of message exchange between interacting components.",
+										"type": "string",
+										"enum": [ "in-out", "out-in", "in-only", "out-only" ]
+									},
+									"message": {
+										"description": "Zero or more messages associated with the operation.",
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"name": {
+													"description": "The name of the message.",
+													"type": "string"
+												},
+												"description": {
+													"description": "A description of the message.",
+													"type": "string"
+												},
+												"direction": {
+													"description": "A value that indicates whether the message is input (in) or output (out).",
+													"type": "string",
+													"enum": [ "in", "out" ]
+												},
+												"header": {
+													"description": "A collection of zero or more name-value pairs (fields) that provides information about how the message should be processed or interpreted.",
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"name": {
+																"description": "The name of the header field.",
+																"type": "string"
+															},
+															"description": {
+																"description": "A description of the header field.",
+																"type": "string"
+															},
+															"permissible-value": {
+																"description": "The set of allowable values of the header field.",
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															}
+														}
+													}
+												},
+												"payload": {
+													"description": "The actual (business) data transferred by a message.",
+													"type": "object",
+													"properties": {
+														"payload-type": {
+															"description": "A value that indicates the format of the data transferred by the message.",
+															"type": "string",
+															"enum": [ "text", "stream", "object", "byte" ]
+														},
+														"data-entity": {
+															"description": "A basic unit of identifiable and definable data.",
+															"type": "object",
+															"properties": {
+																"name": {
+																	"description": "The name of the data entity.",
+																	"type": "string"
+																},
+																"description": {
+																	"description": "A description of the data entity.",
+																	"type": "string"
+																},
+																"data-definition": {
+																	"description": "A reference to the resource that defines and describes the meaning, structure, inter-relationships, permissible values, format and other aspects of a data entity. Possible examples are an XML schema file, a data model diagram, a common information exchange model such as AIXM, or some other resource that describes the data entity.",
+																	"type": "string",
+																	"format": "uri"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"fault": {
+					"description": "A message that is returned as a result of an error that prevents a service from implementing a required function.",
+					"type": "object",
+					"properties": {
+						"fault-id": {
+							"description": "An identifier used to designate or identify the fault.",
+							"type": "string"
+						},
+						"direction": {
+							"description": "A value that indicates fault data is always transferred out of the system.",
+							"type": "string",
+							"enum": [ "in", "out" ],
+							"default": "in"
+						}
+					}
+				},
+				"resource": {
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/resource.json#/definitions/resource"
+					}
+				}
+			}
+		}
+	}
+}

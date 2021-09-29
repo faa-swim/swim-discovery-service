@@ -1,0 +1,140 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://sdm-j-1.0.0/profile.json",
+	"title": "profile",
+	"description": "This schema defines the Profile part of a Service Description.",
+	"type": "object",
+	"definitions": {
+		"profile": {
+			"description": "The part of a service description that describes what is accomplished by the service, who owns the service, limitations on service applicability and quality of service, and policies that the service requester must satisfy to use the service successfully.",
+			"type": "object",
+			"properties": {
+				"service-id": {
+					"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/service-description.json#/definitions/service-id"
+				},
+				"name": {
+					"description": "The full name (and acronym, if any) of the service.",
+					"type": "string"
+				},
+				"description": {
+					"description": "A textual description of the service.",
+					"type": "string"
+				},
+				"version": {
+					"description": "The current version or revision level of the service.",
+					"type": "string"
+				},
+				"provider": {
+					"type": "object",
+					"description": "The organization that offers the use of capabilities by means of the service.",
+					"minimum": 1,
+					"maximum": 1,
+					"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/organization.json#/definitions/organization"
+				},
+				"category": {
+					"type": "array",
+					"items": {
+						"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/category.json#/definitions/category"
+					}
+				},
+				"function": {
+					"description": "A type of activity describing the functionality of the service.",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"description": {
+								"description": "A description of the function.",
+								"type": "string"
+							},
+							"real-world-effect": {
+								"description": "An ultimate purpose associated with the interaction with the service. It may be the response to a request for information or the change in the state of some entities shared between the participants in the interaction.",
+								"type": "string"
+							}
+						}
+					}
+				},
+				"security-mechanism": {
+					"description": "A process (or a device incorporating such a process) that is utilized or implemented by the service in order to address a security threat.",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"description": "The name of the security mechanism.",
+								"type": "string"
+							},
+							"description": {
+								"description": "A description of the security mechanism.",
+								"type": "string"
+							},
+							"protocol": {
+								"description": "A document that defines and prescribes the usage of the security mechanism.",
+								"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/document.json#/definitions/document"
+							}
+						}
+					}
+				},
+				"policy": {
+					"description": "A protocol or specification document that describes and governs a service policy.",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"description": "The name of the policy.",
+								"type": "string"
+							},
+							"description": {
+								"description": "A description of the policy.",
+								"type": "string"
+							},
+							"protocol": {
+								"description": "A document that defines and prescribes the usage of the policy.",
+								"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/document.json#/definitions/document"
+							}
+						}
+					}
+				},
+				"quality-of-service": {
+					"description": "A set of parameters that specify and measure the value of the provided service.",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"description": "The name of the quality of service parameter. Examples include: capacity, response time, etc.",
+								"type": "string"
+							},
+							"value": {
+								"description": "The value or range of values that the quality of service parameter is expected to meet or possess.",
+								"type": "string"
+							},
+							"description": {
+								"description": "A description of the quality of service parameter.",
+								"type": "string"
+							},
+							"calculation-method": {
+								"description": "A description of how the quality of service parameter values are measured or calculated.",
+								"type": "string"
+							},
+							"unit-of-measure": {
+								"description": "The unit of measure in which the quality of service parameter values are expressed.",
+								"type": "string"
+							}
+						},
+						"required": [ "name", "value", "description", "calculation method", "unit of measure" ]
+					}
+				},
+				"environmental-constraint": {
+					"type": "array",
+					"items": {
+						"description": "A characteristic of the environment or larger system within which the service operates; examples include: capacity of existing enterprise network, firewalls, physical computing resources, etc.",
+						"type": "string"
+					}
+				}
+			},
+			"required": [ "service-id", "name", "version", "provider" ]
+		}
+	}
+}
