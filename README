@@ -1,3 +1,4 @@
-This repository contains machine readable artifacts of the <a href="https://discovery.swim.aero">SWIM Discovery Service Standard<a>
+This repository contains machine readable artifacts of the [**SWIM Discovery Service**](https://discovery.swim.aero") standard.
 
-Discovery is "the act of locating a machine-processable description of a Web service-related resource that may have been previously unknown and that meets certain functional criteria. It involves matching a set of functional and other criteria with a set of resource descriptions. The goal is to find an appropriate Web service-related resource."
+[W3C](https://www.w3.org/TR/2004/NOTE-ws-gloss-20040211/#discovery) defines discovery as
+> the act of locating a machine-processable description of a Web service-related resource that may have been previously unknown and that meets certain functional criteria. It involves matching a set of functional and other criteria with a set of resource descriptions. The goal is to find an appropriate Web service-related resource.
