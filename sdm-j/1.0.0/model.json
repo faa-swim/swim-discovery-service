@@ -25,7 +25,10 @@
 							"type": "array",
 							"items": {
 								"type": "object",
-								"required": [ "name", "description" ],
+								"required": [
+									"name",
+									"description"
+								],
 								"properties": {
 									"name": {
 										"description": "The name of the operation.",
@@ -46,7 +49,12 @@
 									"message-exchange-pattern": {
 										"description": "A value that indicates the pattern of message exchange between interacting components.",
 										"type": "string",
-										"enum": [ "in-out", "out-in", "in-only", "out-only" ]
+										"enum": [
+											"in-out",
+											"out-in",
+											"in-only",
+											"out-only"
+										]
 									},
 									"message": {
 										"description": "Zero or more messages associated with the operation.",
@@ -65,7 +73,10 @@
 												"direction": {
 													"description": "A value that indicates whether the message is input (in) or output (out).",
 													"type": "string",
-													"enum": [ "in", "out" ]
+													"enum": [
+														"in",
+														"out"
+													]
 												},
 												"header": {
 													"description": "A collection of zero or more name-value pairs (fields) that provides information about how the message should be processed or interpreted.",
@@ -98,24 +109,32 @@
 														"payload-type": {
 															"description": "A value that indicates the format of the data transferred by the message.",
 															"type": "string",
-															"enum": [ "text", "stream", "object", "byte" ]
+															"enum": [
+																"text",
+																"stream",
+																"object",
+																"byte"
+															]
 														},
 														"data-entity": {
-															"description": "A basic unit of identifiable and definable data.",
-															"type": "object",
-															"properties": {
-																"name": {
-																	"description": "The name of the data entity.",
-																	"type": "string"
-																},
-																"description": {
-																	"description": "A description of the data entity.",
-																	"type": "string"
-																},
-																"data-definition": {
-																	"description": "A reference to the resource that defines and describes the meaning, structure, inter-relationships, permissible values, format and other aspects of a data entity. Possible examples are an XML schema file, a data model diagram, a common information exchange model such as AIXM, or some other resource that describes the data entity.",
-																	"type": "string",
-																	"format": "uri"
+															"type": "array",
+															"item": {
+																"description": "A basic unit of identifiable and definable data.",
+																"type": "object",
+																"properties": {
+																	"name": {
+																		"description": "The name of the data entity.",
+																		"type": "string"
+																	},
+																	"description": {
+																		"description": "A description of the data entity.",
+																		"type": "string"
+																	},
+																	"data-definition": {
+																		"description": "A reference to the resource that defines and describes the meaning, structure, inter-relationships, permissible values, format and other aspects of a data entity. Possible examples are an XML schema file, a data model diagram, a common information exchange model such as AIXM, or some other resource that describes the data entity.",
+																		"type": "string",
+																		"format": "uri"
+																	}
 																}
 															}
 														}
@@ -123,25 +142,22 @@
 												}
 											}
 										}
+									},
+									"fault": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"description": "A message that is returned as a result of an error that prevents a service from implementing a required function.",
+											"properties": {
+												"fault-id": {
+													"description": "An identifier used to designate or identify the fault.",
+													"type": "string"
+												}
+											}
+										}
 									}
 								}
 							}
-						}
-					}
-				},
-				"fault": {
-					"description": "A message that is returned as a result of an error that prevents a service from implementing a required function.",
-					"type": "object",
-					"properties": {
-						"fault-id": {
-							"description": "An identifier used to designate or identify the fault.",
-							"type": "string"
-						},
-						"direction": {
-							"description": "A value that indicates fault data is always transferred out of the system.",
-							"type": "string",
-							"enum": [ "in", "out" ],
-							"default": "in"
 						}
 					}
 				},
