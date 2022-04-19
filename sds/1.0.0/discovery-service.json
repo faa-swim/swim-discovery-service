@@ -1,0 +1,60 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "http://sds.faa.gov/capability.json ",
+ "title": "Discovery Service",
+ "description": "Information that describes an instance of SWIM Discovery Services (SDS).",
+ "type": "object",
+ "required": ["id","name"],
+ "properties": {
+ "id": {
+ "description": "The identifier by which the service is uniquely referenced.",
+ "type": "string",
+ "format": " uri-reference"
+ },
+ "name": {
+ "description": "The full name and acronym of the service.",
+ "type": "string"
+ },
+ "description": {
+ "description": "The description of the service.",
+ "type": "string"
+ },
+ "version": {
+ "description": "The version of the service.",
+ "type": "string"
+ },
+ "provider": {
+ "minimum": 1,
+ "maximum": 1,
+ "$ref": "https://discovery.swim.aero/sdm-j/1.0.0/organization.json"
+ },
+ "operations": {
+ "description": "A list of operations offered by the service.",
+ "type": "array",
+ "uniqueItems": true,
+ "items": {
+ "$ref": "#/definitions/operation"
+ }
+ },
+ "see also": {
+ "description": "A reference to an external resource (e.g., a registry) for extended documentation. ",
+ "type": "string",
+ "format": "uri"
+ }
+ },
+ "definitions": {
+ "operation": {
+ "description": "An operation offered by the service.",
+ "type": "object",
+ "properties": {
+ "name": {
+ "description": "The name of the operation.",
+ "type": "string"
+ },
+ "security-constraint": {
+ "type": "string"
+ }
+ }
+ }
+ }
+}

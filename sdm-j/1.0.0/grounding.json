@@ -20,7 +20,7 @@
 							"properties": {
 								"description": "A document containing a formal set of rules governing data encoding and coordination for data exchange among components.",
 								"protocol": {
-									"$ref": "https://semantics.aero/service-description/sdm-j/sdm-j-1.0.0/document.json#/definitions/document"
+									"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/document.json#/definitions/document"
 								}
 							}
 						},
