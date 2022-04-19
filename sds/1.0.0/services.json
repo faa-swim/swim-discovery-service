@@ -1,0 +1,90 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://sds.faa.gov/services.json",
+	"title": "Services",
+	"description": "List of references to the services whose service descriptions the discovery service provides.",
+	"type": "object",
+	"properties": {
+		"services": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"$ref": "#/definitions/service"
+			}
+		}
+	},
+	"definitions": {
+		"service": {
+			"description": "Information comprising a single service reference.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "The identifier by which the service is uniquely referenced.",
+					"type": "string",
+					"format": "uri"
+				},
+				"name": {
+					"description": "The full name and acronym of the service.",
+					"type": "string"
+				},
+				"description": {
+					"description": "Brief description of the service.",
+					"type": "string"
+				},
+				"service-category": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string",
+							"default": "SWIM Service Category"
+						},
+						"taxonomy": {
+							"type": "string",
+							"format":"uri",
+							"default": "http://semantics.aero/service-category"
+						},
+						"code": {
+							"type": "string",
+							"format": "uri"
+						}
+					}
+				},
+				"service-availability-status": {
+					"type": "object",
+					"properties": {
+						"name": {
+						"type": "string",
+						"default": "Service Availability Status"
+						},				
+						"taxonomy": {
+							"type": "string",
+							"format":"uri",
+							"default": "http://semantics.aero/availability-status"
+						},
+						"code": {
+							"type": "string",
+							}
+					}
+				},
+				"interface-type":{
+				"type": "object",
+					"properties": {
+						"name": {
+							"type": "string",
+							"default": "Service Interface Type"
+						},
+						"taxonomy": {
+							"type": "string",
+							"default": "http://semantics.aero/interface-type"
+						},
+						"code": {
+							"type": "string",
+							"format": "uri"
+						}
+					}
+				}
+			},
+			"required": [ "id", "name","description" ]
+		}
+	}
+}
