@@ -18,16 +18,16 @@
 						{
 							"type":"object", 
 							"properties": {
-								"description": "A document containing a formal set of rules governing data encoding and coordination for data exchange among components.",
 								"protocol": {
+									"description": "A document containing a formal set of rules governing data encoding and coordination for data exchange among components.",
 									"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/document.json#/definitions/document"
 								}
 							}
 						},
 						{
 								"properties": {
-								"description": "A value that indicates the type of interactions addressed by the protocol.",
 								"type": {
+									"description": "A value that indicates the type of interactions addressed by the protocol.",
 									"enum": [ "data", "message", "transport", "other" ]
 								}
 							}
