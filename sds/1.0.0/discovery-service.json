@@ -26,7 +26,7 @@
  "provider": {
  "minimum": 1,
  "maximum": 1,
- "$ref": "https://discovery.swim.aero/sdm-j/1.0.0/organization.json"
+ "$ref": "https://discovery.swim.aero/sdm-j/1.0.0/organization.json#/definitions/organization"
  },
  "operations": {
  "description": "A list of operations offered by the service.",
