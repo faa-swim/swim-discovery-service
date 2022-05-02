@@ -10,7 +10,7 @@
 			"type": "object",
 			"properties": {
 				"service-id": {
-					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/service-description.json#/definitions/service-id"
+					"$ref": "https://swim.aero/sdm-j/1.0.1/service-description.json#/definitions/service-id"
 				},
 				"name": {
 					"description": "The full name (and acronym, if any) of the service.",
@@ -29,12 +29,12 @@
 					"description": "The organization that offers the use of capabilities by means of the service.",
 					"minimum": 1,
 					"maximum": 1,
-					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/organization.json#/definitions/organization"
+					"$ref": "https://swim.aero/sdm-j/1.0.1/organization.json#/definitions/organization"
 				},
 				"category": {
 					"type": "array",
 					"items": {
-						"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/category.json#/definitions/category"
+						"$ref": "https://swim.aero/sdm-j/1.0.1/category.json#/definitions/category"
 					}
 				},
 				"function": {
@@ -70,7 +70,7 @@
 							},
 							"protocol": {
 								"description": "A document that defines and prescribes the usage of the security mechanism.",
-								"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/document.json#/definitions/document"
+								"$ref": "https://swim.aero/sdm-j/1.0.1/document.json#/definitions/document"
 							}
 						}
 					}
@@ -91,7 +91,7 @@
 							},
 							"protocol": {
 								"description": "A document that defines and prescribes the usage of the policy.",
-								"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/document.json#/definitions/document"
+								"$ref": "https://swim.aero/sdm-j/1.0.1/document.json#/definitions/document"
 							}
 						}
 					}
