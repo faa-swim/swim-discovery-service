@@ -150,7 +150,7 @@
 					"type": "array",
 					"minItems": 0,
 					"items": {
-						"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/resource.json#/definitions/resource"
+						"$ref": "https://swim.aero/sdm-j/1.0.1/resource.json#/definitions/resource"
 					}
 				}
 			}
