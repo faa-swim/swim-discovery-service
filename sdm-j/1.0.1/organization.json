@@ -1,0 +1,59 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://swim.aero/sdm-j/1.0.1/organization.json",
+	"title": "Organization",
+	"description": "This schema defines the class Organization, which is used as a base-class for describing various organizations in the context of a service description (e.g., Service Provider).",
+	"type": "object",
+	"definitions": {
+		"organization": {
+			"description": "A unique framework of authority within which a person or persons act, or are designated to act, towards some purpose. Any department, service, or other entity within an organization which needs to be identified for information exchange.",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "The full name (and acronym, if any) of the organization.",
+					"type": "string"
+				},
+				"description": {
+					"description": "A description of the organization.",
+					"type": "string"
+				},
+				"web-page": {
+					"description": "The URI for the Web page that supplies information about the organization.",
+					"type": "string",
+					"format": "uri"
+				},
+				"point-of-contact": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/point-of-contact"
+					}
+				}
+			},
+			"required": [ "name", "description", "point-of-contact" ]
+		},
+		"point-of-contact": {
+			"description": "A person or group within an organization, suitable for making a human contact for any purpose.",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "The name of the point of contact.",
+					"type": "string"
+				},
+				"function": {
+					"description": "A designation of the position or responsibilities of the point of contact.",
+					"type": "string"
+				},
+				"phone-number": {
+					"description": "A telephone number used to communicate orally with the point of contact.",
+					"type": "string"
+				},
+				"email": {
+					"description": "An email address used to correspond with the point of contact.",
+					"type": "string",
+					"format": "email"
+				}
+			},
+			"required": [ "name", "function", "email" ]
+		}
+	}
+}

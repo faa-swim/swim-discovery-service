@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://swim.aero/sdm-j/1.0.1/service-description.json",
+	"title": "service description",
+	"description": "This schema represents the top-level (root) object of the model that specifies a Service Description. It follows the SDCM v2.0 <http://swim.aero/sdcm/2.0.0> blueprint, in which the ServiceDescription class aggregates three classes: Profile, Model and Grounding.",
+	"type": "object",
+	"properties": {
+		"service-description": {
+			"type": "object",
+			"description": "The information needed in order to use, or consider using, a service.",
+			"properties": {
+				"service-id": {
+					"$ref": "#/definitions/service-id"
+				},
+				"profile": {
+					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/profile.json#/definitions/profile",
+					"maximum": 1
+				},
+				"model": {
+					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/model.json#/definitions/model"
+				},
+				"grounding": {
+					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/grounding.json#/definitions/grounding"
+				}
+			},
+			"required": [ "service-id", "profile" ]
+		}
+	},
+	"definitions": {
+		"service-id": {
+			"description": "The identifier by which the service is globally uniquely referenced.",
+			"type": "string",
+			"format": "uri-reference"
+		}
+	}
+}

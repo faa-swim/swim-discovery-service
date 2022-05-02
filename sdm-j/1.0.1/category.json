@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://swim.aero/sdm-j/1.0.1/category.json",
+	"title": "Category Schema",
+	"description": "This schema defines the object Category, which is used to used to categorize services based on various service characteristics. Categories are expressed as values in taxonomies.",
+	"type": "object",
+	"definitions": {
+		"category": {
+			"type": "object",
+			"properties": {
+				"category": {
+					"description": "The name of the category.",
+					"type": "string"
+				},
+				"value": {
+					"description": "One or more values in the taxonomy indicated by the 'taxonomy' attribute.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"taxonomy": {
+					"description": "A URI that identifies and is used to locate the taxonomy containing all permissible values.",
+					"type": "string",
+					"format": "uri-reference"
+				}
+			}
+		}
+	}
+}
