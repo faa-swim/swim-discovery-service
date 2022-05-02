@@ -13,14 +13,14 @@
 					"$ref": "#/definitions/service-id"
 				},
 				"profile": {
-					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/profile.json#/definitions/profile",
+					"$ref": "https://swim.aero/sdm-j/1.0.1/profile.json#/definitions/profile",
 					"maximum": 1
 				},
 				"model": {
-					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/model.json#/definitions/model"
+					"$ref": "https://swim.aero/sdm-j/1.0.1/model.json#/definitions/model"
 				},
 				"grounding": {
-					"$ref": "https://discovery.swim.aero/sdm-j/1.0.0/grounding.json#/definitions/grounding"
+					"$ref": "https://swim.aero/sdm-j/1.0.1/grounding.json#/definitions/grounding"
 				}
 			},
 			"required": [ "service-id", "profile" ]
