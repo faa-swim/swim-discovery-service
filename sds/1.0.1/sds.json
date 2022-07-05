@@ -77,9 +77,9 @@
             }
           },
           {
-            "name": "service-product",
+            "name": "service-category",
             "in": "query",
-            "description": "Values as defined in http://semantics.aero/service-product",
+            "description": "Values as defined in http://semantics.aero/service-category",
             "required": false,
             "style": "form",
             "explode": true,
