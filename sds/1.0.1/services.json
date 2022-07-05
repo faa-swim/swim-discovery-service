@@ -32,20 +32,23 @@
 					"type": "string"
 				},
 				"service-category": {
-					"type": "object",
-					"properties": {
-						"name": {
-							"type": "string",
-							"default": "SWIM Service Category"
-						},
-						"taxonomy": {
-							"type": "string",
-							"format":"uri",
-							"default": "http://semantics.aero/service-category"
-						},
-						"code": {
-							"type": "string",
-							"format": "uri"
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"default": "SWIM Service Category"
+							},
+							"taxonomy": {
+								"type": "string",
+								"format":"uri",
+								"default": "http://semantics.aero/service-category"
+							},
+							"code": {
+								"type": "string",
+								"format": "uri"
+							}
 						}
 					}
 				},
